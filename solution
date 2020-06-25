@@ -1,0 +1,33 @@
+def encrypt_this(text):
+    result = []
+    
+    for word in text.split():
+        # turn word into a list
+        word = list(word)
+        
+        # replace first letter with ascii code
+        word[0] = str(ord(word[0]))
+        
+        # switch 2nd and last letters
+        if len(word) > 2:
+            word[1], word[-1] = word[-1], word[1]
+        
+        # add to results
+        result.append(''.join(word))
+    
+    return ' '.join(result)
+    
+    
+    
+OR
+
+
+def encrypt_this(text):
+    result = []
+    for i in text.split():
+        i = list(i)
+        if len(i) > 2:
+            i[-1], i[1] = i[1], i[-1]
+        i[0] = str(ord(i[0]))
+        result.append("".join(i))
+    return " ".join(result)
